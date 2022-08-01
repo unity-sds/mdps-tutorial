@@ -68,7 +68,12 @@ def submit_job(app_name, data):
     try:
         job_url = settings.WPST_API_DOMAIN + "/processes/{}/jobs".format(app_name)
         r = requests.post(job_url, headers=headers, json=data)
-        job_id = r.headers['location'].replace(job_url + "/","")
+        
+        job_location = r.headers['location']
+        if "http://127.0.0.1:5000" in job_location:
+            job_location = job_location.replace("http://127.0.0.1:5000",settings.WPST_API_DOMAIN)
+
+        job_id = job_location.replace(job_url + "/","")
 
     except requests.exceptions.HTTPError as e:
         # Add Logging Mechanism
