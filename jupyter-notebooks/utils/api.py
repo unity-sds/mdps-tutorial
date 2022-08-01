@@ -6,7 +6,7 @@ def get_apps():
     
     try:
         
-        response = requests.get(settings.API_DOMAIN + "/processes")
+        response = requests.get(settings.WPST_API_DOMAIN + "/processes")
         json_result = response.json()['processes']
         
     except requests.exceptions.HTTPError as e:
@@ -19,7 +19,7 @@ def get_application(app_name):
 
     try:
         
-        response = requests.get(settings.API_DOMAIN + "/processes/{}".format(app_name))
+        response = requests.get(settings.WPST_API_DOMAIN + "/processes/{}".format(app_name))
         json_result = response.json()['process']
         
     except requests.exceptions.HTTPError as e:
@@ -36,7 +36,7 @@ def deploy_application(app_config):
     
     try:
         
-        response = requests.post(settings.API_DOMAIN + "/processes", headers=headers, json=app_config)
+        response = requests.post(settings.WPST_API_DOMAIN + "/processes", headers=headers, json=app_config)
         json_result = response.json()
         
     except requests.exceptions.HTTPError as e:
@@ -49,7 +49,7 @@ def dismiss_application(app_name):
     
     try:
         
-        response = requests.delete(settings.API_DOMAIN + "/processes/{}".format(app_name))
+        response = requests.delete(settings.WPST_API_DOMAIN + "/processes/{}".format(app_name))
         json_result = response.json()['undeploymentResult']
         
     except requests.exceptions.HTTPError as e:
@@ -66,7 +66,7 @@ def submit_job(app_name, data):
     }
     
     try:
-        job_url = settings.API_DOMAIN + "/processes/{}/jobs".format(app_name)
+        job_url = settings.WPST_API_DOMAIN + "/processes/{}/jobs".format(app_name)
         r = requests.post(job_url, headers=headers, json=data)
         job_id = r.headers['location'].replace(job_url + "/","")
 
@@ -80,7 +80,7 @@ def get_job_status(app_name, job_id):
     
     try:
         
-        job_status_url = settings.API_DOMAIN + "/processes/{}/jobs/{}".format(app_name, job_id)
+        job_status_url = settings.WPST_API_DOMAIN + "/processes/{}/jobs/{}".format(app_name, job_id)
         response = requests.get(job_status_url)
         job_status = response.json()['status']
         
@@ -94,7 +94,7 @@ def get_job_result(app_name, job_id):
 
     try:
         
-        job_result_url = settings.API_DOMAIN + "/processes/{}/jobs/{}/result".format(app_name, job_id)
+        job_result_url = settings.WPST_API_DOMAIN + "/processes/{}/jobs/{}/result".format(app_name, job_id)
         response = requests.get(job_result_url)
         json_result = response.json()['outputs']
         
@@ -107,7 +107,7 @@ def get_job_result(app_name, job_id):
 def get_jobs_for_app(app_name):
     
     try:
-        job_url = settings.API_DOMAIN + "/processes/{}/jobs".format(app_name)
+        job_url = settings.WPST_API_DOMAIN + "/processes/{}/jobs".format(app_name)
         response = requests.get(job_url)
         json_result = response.json()['jobs']
     except:
@@ -120,7 +120,7 @@ def dismiss_job(app_name, job_id):
     
     try:
         
-        job_url = settings.API_DOMAIN + "/processes/{}/jobs/{}".format(app_name,job_id)
+        job_url = settings.WPST_API_DOMAIN + "/processes/{}/jobs/{}".format(app_name,job_id)
         response = requests.delete(job_url)
         json_result = response.json()['statusInfo']
         
