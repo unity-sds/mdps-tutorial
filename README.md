@@ -1,6 +1,6 @@
 # sounder-sips-tutorial
 
-This tutorial is meant to allow the SounderSIPS team to get up and running in the Unity Science Data System environment and begin using Unity services. 
+This tutorial is meant to allow the SounderSIPS team to get up and running in the Unity Science Data System environment and begin using Unity services.
 
 ### Getting Started with this tutorial
 
@@ -19,6 +19,19 @@ Double click this to open a new terminal. Once the terminal is open, enter the f
 jovyan@jupyter-gangl:~$
 git clone https://github.com/unity-sds/sounder-sips-tutorial.git
 ```
+
+**Note** if you receive an error like the following:
+```
+bash: git: command not found
+```
+it means the environment you have setup does not have the git command line installed. This usually happens when using the *minimal* environment in jupyter. To fix this, you can run the following command:
+
+```
+conda install git
+```
+
+and re-run the command.
+
 After a few seconds, you should see a folder called 'sounder-sips-tutorial' in the file navigator on the left hand side:
 
 ![tutorial folder](/img/jl_03.png)
