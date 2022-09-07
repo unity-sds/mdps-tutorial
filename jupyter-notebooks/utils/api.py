@@ -81,6 +81,20 @@ def submit_job(app_name, data):
     
     return job_id
 
+def get_job_by_id(app_name, job_id):
+    
+    try:
+        
+        job_status_url = settings.WPST_API_DOMAIN + "/processes/{}/jobs/{}".format(app_name, job_id)
+        response = requests.get(job_status_url).json()
+        
+    except requests.exceptions.HTTPError as e:
+        # Add Logging Mechanism
+        raise
+
+    return response
+
+
 def get_job_status(app_name, job_id):
     
     try:

@@ -1,1 +1,2 @@
-WPST_API_DOMAIN = "http://a7091d8dfcb384c7d9bd828d705e4b6d-268041018.us-west-2.elb.amazonaws.com:5001/"
+#WPST_API_DOMAIN = "http://af9ab68f04f5a470bb55ba29ff6a6215-1326373853.us-west-2.elb.amazonaws.com:5001"
+WPST_API_DOMAIN = "http://a90780f931f2542afa78d100dc0e204e-1821753973.us-west-2.elb.amazonaws.com:5001"
