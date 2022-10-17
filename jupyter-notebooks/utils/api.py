@@ -23,6 +23,7 @@ def get_application(app_name):
     try:
         
         response = requests.get(settings.WPST_API_DOMAIN + "/processes/{}".format(app_name))
+        response.raise_for_status()
         json_result = response.json()['process']
         
     except requests.exceptions.HTTPError as e:
@@ -40,6 +41,7 @@ def deploy_application(app_config):
     try:
         
         response = requests.post(settings.WPST_API_DOMAIN + "/processes", headers=headers, json=app_config)
+        response.raise_for_status()
         json_result = response.json()
         
     except requests.exceptions.HTTPError as e:
@@ -53,6 +55,7 @@ def dismiss_application(app_name):
     try:
         
         response = requests.delete(settings.WPST_API_DOMAIN + "/processes/{}".format(app_name))
+        response.raise_for_status()
         json_result = response.json()['undeploymentResult']
         
     except requests.exceptions.HTTPError as e:
@@ -90,13 +93,15 @@ def get_job_by_id(app_name, job_id):
     try:
         
         job_status_url = settings.WPST_API_DOMAIN + "/processes/{}/jobs/{}".format(app_name, job_id)
-        response = requests.get(job_status_url).json()
+        response = requests.get(job_status_url)
+        response.raise_for_status()
+        json_data = response.json()
         
     except requests.exceptions.HTTPError as e:
         # Add Logging Mechanism
         raise
 
-    return response
+    return json_data
 
 
 def get_job_status(app_name, job_id):
@@ -105,6 +110,7 @@ def get_job_status(app_name, job_id):
         
         job_status_url = settings.WPST_API_DOMAIN + "/processes/{}/jobs/{}".format(app_name, job_id)
         response = requests.get(job_status_url)
+        response.raise_for_status()
         job_status = response.json()['status']
         
     except requests.exceptions.HTTPError as e:
@@ -119,6 +125,7 @@ def get_job_result(app_name, job_id):
         
         job_result_url = settings.WPST_API_DOMAIN + "/processes/{}/jobs/{}/result".format(app_name, job_id)
         response = requests.get(job_result_url)
+        response.raise_for_status()
         json_result = response.json()['outputs']
         
     except requests.exceptions.HTTPError as e:
@@ -132,6 +139,7 @@ def get_jobs_for_app(app_name):
     try:
         job_url = settings.WPST_API_DOMAIN + "/processes/{}/jobs".format(app_name)
         response = requests.get(job_url)
+        response.raise_for_status()
         json_result = response.json()['jobs']
     except:
         # Add Logging Mechanism
@@ -145,6 +153,7 @@ def dismiss_job(app_name, job_id):
         
         job_url = settings.WPST_API_DOMAIN + "/processes/{}/jobs/{}".format(app_name,job_id)
         response = requests.delete(job_url)
+        response.raise_for_status()
         json_result = response.json()['statusInfo']
         
     except:
