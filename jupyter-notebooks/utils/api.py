@@ -2,11 +2,14 @@ import requests
 
 from . import settings
 
-def get_apps():
+def get_apps(token):
+    
+    headers = _get_headers(token)
     
     try:
         
-        response = requests.get(settings.WPST_API_DOMAIN + "/processes")
+        response = requests.get(settings.WPST_API_DOMAIN + "/processes", headers=headers)
+        response.raise_for_status()
         json_result = response.json()['processes']
         
     except requests.exceptions.HTTPError as e:
@@ -59,17 +62,18 @@ def dismiss_application(app_name):
     return json_result
 
 
-def submit_job(app_name, data):
+def submit_job(token, app_name, data):
 
-    headers = {
+    headers = _get_headers(token, {
        'Content-type': 'application/json'
-    }
+    })
     
     try:
         job_url = settings.WPST_API_DOMAIN + "/processes/{}/jobs".format(app_name)
-        r = requests.post(job_url, headers=headers, json=data)
+        response = requests.post(job_url, headers=headers, json=data)
+        response.raise_for_status()
         
-        job_location = r.headers['location']
+        job_location = response.headers['location']
         if "http://127.0.0.1:5000" in job_location:
             job_location = job_location.replace("http://127.0.0.1:5000",settings.WPST_API_DOMAIN)
 
@@ -148,3 +152,15 @@ def dismiss_job(app_name, job_id):
         raise
 
     return json_result
+
+
+def _get_headers(token, additional_headers = {}):
+    
+    if token == None:
+        raise Exception("No authorization token was provided.")
+    
+    base_header = {
+        "Authorization": "Bearer " + token,
+    }
+    
+    return {**base_header, **additional_headers}
