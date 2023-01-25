@@ -1,1 +1,0 @@
-WPST_API_DOMAIN = "https://71t9bgvuyc.execute-api.us-west-2.amazonaws.com/test/ades-wpst"
