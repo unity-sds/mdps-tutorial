@@ -1,0 +1,68 @@
+{
+    "processDescription": {
+        "process": {
+            "id": "unity-example-application..HEAD",
+            "title": "Add missing import",
+            "owsContext": {
+                "offering": {
+                    "content": {
+                        "href": "https://raw.githubusercontent.com/jplzhan/artifact-deposit-repo/main/unity-example-application//HEAD/workflow.cwl"
+                    }
+                }
+            },
+            "abstract": "Application Package Demo",
+            "keywords": [
+                "Demo"
+            ],
+            "inputs": [
+                {
+                    "id": "line_offset",
+                    "title": "Automatically detected using papermill.",
+                    "literalDataDomains": [
+                        {
+                            "dataType": {
+                                "name": "float"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "output_directory",
+                    "title": "Automatically detected using papermill.",
+                    "literalDataDomains": [
+                        {
+                            "dataType": {
+                                "name": "string"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "input_filename",
+                    "title": "Stage-in input specified for URL-to-PATH conversion.",
+                    "literalDataDomains": [
+                        {
+                            "dataType": {
+                                "name": "stage_in"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "outputs": []
+        },
+        "processVersion": "1.0.0",
+        "jobControlOptions": [
+            "async-execute"
+        ],
+        "outputTransmission": [
+            "reference"
+        ]
+    },
+    "immediateDeployment": true,
+    "executionUnit": [
+        {
+            "href": "docker://unity-example-application.head"
+        }
+    ]
+}
