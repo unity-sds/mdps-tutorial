@@ -21,6 +21,8 @@
 
 This tutorial is meant to allow the SounderSIPS team to get up and running in the Unity Science Data System environment and begin using Unity services.
 
+[Unity Docs](https://unity-sds.gitbook.io/docs/) | [Issue Tracker](https://github.com/unity-sds/sounder-sips-tutorial/issues)
+
 ## Features
 
 * Tutorial for Unity Science Data System environment
