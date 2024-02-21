@@ -1,0 +1,18 @@
+{
+  "type": "Catalog",
+  "id": "my_process_output_collection",
+  "stac_version": "1.0.0",
+  "description": "STAC Catalog",
+  "links": [
+    {
+      "rel": "root",
+      "href": "./catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./SISTER_EMIT_L2A_RSRFL_20231206T160939_000.json",
+      "type": "application/json"
+    }
+  ]
+}

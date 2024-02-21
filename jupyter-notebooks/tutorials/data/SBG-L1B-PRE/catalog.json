@@ -1,0 +1,18 @@
+{
+  "type": "Catalog",
+  "id": "SBG-L1B-PRE",
+  "stac_version": "1.0.0",
+  "description": "STAC Catalog",
+  "links": [
+    {
+      "rel": "root",
+      "href": "./catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./SISTER_EMIT_L1B_RDN_20231206T160939_001.json",
+      "type": "application/json"
+    }
+  ]
+}
