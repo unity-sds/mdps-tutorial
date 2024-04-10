@@ -1,0 +1,85 @@
+{
+  "type": "Feature",
+  "stac_version": "1.0.0",
+  "id": "SISTER_EMIT_L2A_RSRFL_20231206T160939_000",
+  "properties": {
+    "datetime": "2023-06-15T01:31:12.467113Z",
+    "start_datetime": "2023-06-15T01:31:12.467113Z",
+    "end_datetime": "2023-06-15T01:36:12.467113Z",
+    "created": "2024-02-15T20:47:53.173740+00:00",
+    "updated": "2024-02-15T20:47:58.424255Z"
+  },
+  "geometry": null,
+  "links": [
+    {
+      "rel": "root",
+      "href": "./catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "./catalog.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "./SISTER_EMIT_L2A_RSRFL_20231206T160939_000.hdr": {
+      "href": "./SISTER_EMIT_L2A_RSRFL_20231206T160939_000.hdr",
+      "title": "None file",
+      "description": "",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "./SISTER_EMIT_L2A_RSRFL_20231206T160939_000_UNC.bin": {
+      "href": "./SISTER_EMIT_L2A_RSRFL_20231206T160939_000_UNC.bin",
+      "title": "binary file",
+      "description": "",
+      "roles": [
+        "data"
+      ]
+    },
+    "./SISTER_EMIT_L2A_RSRFL_20231206T160939_000_UNC.hdr": {
+      "href": "./SISTER_EMIT_L2A_RSRFL_20231206T160939_000_UNC.hdr",
+      "title": "None file",
+      "description": "",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "./SISTER_EMIT_L2A_RSRFL_20231206T160939_000.bin": {
+      "href": "./SISTER_EMIT_L2A_RSRFL_20231206T160939_000.bin",
+      "title": "binary file",
+      "description": "",
+      "roles": [
+        "data"
+      ]
+    },
+    "./SISTER_EMIT_L2A_RSRFL_20231206T160939_000.log": {
+      "href": "./SISTER_EMIT_L2A_RSRFL_20231206T160939_000.log",
+      "title": "None file",
+      "description": "",
+      "roles": [
+        "metadata"
+      ]
+    },
+    "./SISTER_EMIT_L2A_RSRFL_20231206T160939_000.png": {
+      "href": "./SISTER_EMIT_L2A_RSRFL_20231206T160939_000.png",
+      "title": "image/png file",
+      "description": "",
+      "roles": [
+        "browse"
+      ]
+    },
+    "./SISTER_EMIT_L2A_RSRFL_20231206T160939_000.json": {
+      "href": "./SISTER_EMIT_L2A_RSRFL_20231206T160939_000.json",
+      "title": "text/json file",
+      "description": "",
+      "roles": [
+        "metadata"
+      ]
+    }
+  },
+  "stac_extensions": [],
+  "collection": "my_process_output_collection"
+}
